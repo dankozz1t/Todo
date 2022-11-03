@@ -1,15 +1,17 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <ButtonItem> butttton </ButtonItem>
+  <CounterItem />
 </template>
 
 <script>
-import ButtonItem from './components/ButtonItem.vue'
+
+import CounterItem from './components/CounterItem.vue';
+
 
 export default {
   name: 'App',
   components: {
-    ButtonItem
+    CounterItem
   }
 }
 </script>

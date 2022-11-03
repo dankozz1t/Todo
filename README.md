@@ -1,4 +1,4 @@
-# gohome
+# tasks-vue
 
 ## Project setup
 ```

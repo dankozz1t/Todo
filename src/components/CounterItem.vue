@@ -3,14 +3,18 @@
         <p>Like - {{ likes }} </p>
         <p>Dislike - {{ dislikes }} </p>
     </div>
-
-    <button @:click="clickLike">Like</button>
-    <button @:click="clickDislike">Dislike</button>
+    <ButtonItem @:click="clickLike">Like</ButtonItem>
+    <ButtonItem @:click="clickDislike">Dislike</ButtonItem>
 </template>
 
-
 <script>
+import ButtonItem from './ButtonItem.vue';
+
 export default {
+    components: {
+        ButtonItem
+    },
+
     data() {
         return {
             likes: 0,
@@ -27,7 +31,8 @@ export default {
     }
 
 }
-</script>
-<style lang="">
-    
+</script >
+
+<style lang="scss">
+
 </style>

@@ -1,17 +1,17 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <CounterItem />
+  <HomeView></HomeView>
 </template>
 
 <script>
 
-import CounterItem from './components/CounterItem.vue';
+import HomeView from './views/HomeView.vue';
 
 
 export default {
   name: 'App',
   components: {
-    CounterItem
+    HomeView
   }
 }
 </script>

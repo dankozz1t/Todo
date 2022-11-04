@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Watch new film",
+    "body": "I really want to see a new movie about cats!!!",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "title": "Cook dinner",
+    "body": "Chicken in lemon juice",
+    "isActive": false
+  },
+  { "id": 3, "title": "Rob a bank", "body": "At 02:00 AM", "isActive": true }
+]

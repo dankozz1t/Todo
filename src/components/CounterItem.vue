@@ -1,38 +1,42 @@
-<template >
+<template>
+  <div class="counter">
+    <p>Like - {{ likes }}</p>
+    <p>Dislike - {{ dislikes }}</p>
     <div>
-        <p>Like - {{ likes }} </p>
-        <p>Dislike - {{ dislikes }} </p>
+      <ButtonItem @:click="clickLike">Like</ButtonItem>
+      <ButtonItem @:click="clickDislike">Dislike</ButtonItem>
     </div>
-    <ButtonItem @:click="clickLike">Like</ButtonItem>
-    <ButtonItem @:click="clickDislike">Dislike</ButtonItem>
+  </div>
 </template>
 
 <script>
-import ButtonItem from './ButtonItem.vue';
+import ButtonItem from "./UI/ButtonItem.vue";
 
 export default {
-    components: {
-        ButtonItem
-    },
+  components: {
+    ButtonItem,
+  },
+  name: "CounterItem",
 
-    data() {
-        return {
-            likes: 0,
-            dislikes: 0,
-        }
+  data() {
+    return {
+      likes: 0,
+      dislikes: 0,
+    };
+  },
+  methods: {
+    clickLike() {
+      this.likes += 1;
     },
-    methods: {
-        clickLike() {
-            this.likes += 1;
-        },
-        clickDislike() {
-            this.dislikes += 1;
-        }
-    }
-
-}
-</script >
+    clickDislike() {
+      this.dislikes += 1;
+    },
+  },
+};
+</script>
 
 <style lang="scss">
-
+.counter {
+  padding: 20px;
+}
 </style>

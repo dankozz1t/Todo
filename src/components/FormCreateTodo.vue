@@ -1,33 +1,31 @@
 <template>
-    <form @submit.prevent="onSubmit({ title, body })">
+  <form @submit.prevent="createTodo">
+    <InputItem
+      v-model="todo.title"
+      placeholder="enter title for todo"
+      required
+    />
+    <InputItem v-model="todo.body" placeholder="enter body for todo" />
 
-        <input type="text" v-model="title" placeholder="enter title for todo">
-        <textarea v-model="body" placeholder="enter body for todo"></textarea>
-        <ButtonItem type="submit">Add Todo</ButtonItem>
-    </form>
+    <ButtonItem type="submit">Add Todo</ButtonItem>
+  </form>
 </template>
 
 <script>
-import ButtonItem from './ButtonItem.vue';
-
 export default {
-    data() {
-        return {
-            title: "",
-            body: ""
-        };
+  data() {
+    return {
+      todo: { title: "", body: "", id: null },
+    };
+  },
+  methods: {
+    createTodo() {
+      this.todo.id = Date.now();
+      this.$emit("create", this.todo);
+      this.todo = { title: "", body: "", id: null };
     },
-
-    props: {
-        onSubmit: {
-            type: Function,
-        }
-    },
-
-    components: { ButtonItem }
-}
+  },
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

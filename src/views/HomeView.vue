@@ -9,11 +9,16 @@
       >
       <div class="home__sort">
         <MyInput
-          v-model="searchQuery"
+          :model-value="searchQuery"
+          @update:model-value="setSearchQuery"
           placeholder="search todo by title"
         ></MyInput>
 
-        <MySelect v-model="selectedSort" :options="sortOptions"></MySelect>
+        <MySelect
+          :model-value="selectedSort"
+          @update:model-value="setSelectedSort"
+          :options="sortOptions"
+        ></MySelect>
       </div>
       <TodoList :todos="sortedBySearch" @removeTodo="removeTodo" />
     </MyContainer>
@@ -21,31 +26,32 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import FormCreateTodo from "../components/FormCreateTodo.vue";
 import TodoList from "../components/TodoList.vue";
-
-import dataTodos from "../services/todos.json";
 
 export default {
   components: {
     FormCreateTodo,
     TodoList,
   },
+
   data() {
     return {
-      todos: dataTodos,
       isShow: false,
-      searchQuery: "",
-      selectedSort: "",
-      sortOptions: [
-        { value: "title", name: "Sort by title" },
-        { value: "body", name: "Sort by body" },
-        { value: "isActive", name: "Sort by status" },
-        { value: "id", name: "Sort by id" },
-      ],
     };
   },
+
   methods: {
+    ...mapActions({
+      getTodo: "todo/getTodo",
+    }),
+    ...mapMutations({
+      setSearchQuery: "todo/setSearchQuery",
+      setSelectedSort: "todo/setSelectedSort",
+      setTodo: "todo/setTodo",
+    }),
+
     openModal() {
       this.isShow = true;
     },
@@ -55,26 +61,25 @@ export default {
     },
 
     removeTodo(todo) {
-      this.todos = this.todos.filter(({ id }) => id !== todo.id);
+      this.setTodo(this.todos.filter(({ id }) => id !== todo.id));
     },
   },
-  computed: {
-    sortedTodo() {
-      if (this.selectedSort === "isActive" || this.selectedSort === "id") {
-        return [...this.todos].sort(
-          (a, b) => Number(a[this.selectedSort]) - Number(b[this.selectedSort])
-        );
-      }
 
-      return [...this.todos].sort((a, b) =>
-        a[this.selectedSort]?.localeCompare(b[this.selectedSort])
-      );
-    },
-    sortedBySearch() {
-      return [...this.todos].filter(({ title }) =>
-        title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    },
+  mounted() {
+    this.getTodo();
+  },
+
+  computed: {
+    ...mapState({
+      todos: (state) => state.todo.todos,
+      searchQuery: (state) => state.todo.searchQuery,
+      selectedSort: (state) => state.todo.selectedSort,
+      sortOptions: (state) => state.todo.sortOptions,
+    }),
+    ...mapGetters({
+      sortedTodo: "todo/sortedTodo",
+      sortedBySearch: "todo/sortedBySearch",
+    }),
   },
 };
 </script>

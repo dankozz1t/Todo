@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="/">
     <div class="container">
       <CounterItem />
       <MyModal v-model:isShow="isShow">

@@ -54,7 +54,7 @@ export default {
 
   padding: 50px;
 
-  background: #ffffff;
+  background-color: var(--secondary-bg-cl);
 
   box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);
   border-radius: 6px;

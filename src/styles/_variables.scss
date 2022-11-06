@@ -1,22 +1,21 @@
 :root {
   // Fonts
-  --main-font: "Roboto", sans-serif;
+  --main-font: "Mali", cursive;
 
   // Text colors
-  --main-text-cl: #000000;
-  --secondary-text-cl: #ffffff;
-
-  --info-title-cl: #8c8c8c;
-  --text-footer-cl: #545454;
+  --main-text-cl: #ffffff;
+  --secondary-text-cl: #000000;
 
   // Background colors
-  --main-bg-cl: #5472aa;
-  --secondary-bg-cl: #ffffff;
+  --main-bg-cl: #4a8396;
+  --secondary-bg-cl: #052937;
 
-  --main-accent-cl: cadetblue;
-  --main-light-accent-cl: #6eabad;
+  --main-accent-cl: #085475;
+  --main-light-accent-cl: #0c5e81;
 
-  --secondary-accent-cl: #5479d6;
+  --secondary-accent-cl: #a6cfd3;
+  --secondary-light-accent-cl: #a6cccf;
+  --secondary-dark-accent-cl: #98c3c7;
 
   // Transition
   --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,10 +28,6 @@
   --error-cl: #c95c54;
 
   //Status
-  --online-cl: green;
-  --offline-cl: red;
+  --online-cl: greenyellow;
+  --offline-cl: crimson;
 }
-
-$mobile: 320px;
-$tablet: 768px;
-$desktop: 1280px;

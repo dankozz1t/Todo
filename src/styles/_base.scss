@@ -44,6 +44,18 @@ a {
 
 button {
   cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+input {
+  font-family: inherit;
+  font-weight: 600;
+}
+
+select {
+  font-family: inherit;
+  font-weight: 600;
 }
 
 ul,

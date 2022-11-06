@@ -2,10 +2,11 @@
   <main>
     <div class="container">
       <CounterItem />
-      <ModalWindow v-model:isShow="isShow">
+      <MyModal v-model:isShow="isShow">
         <FormCreateTodo @create="createTodo" />
-      </ModalWindow>
-      <ButtonItem type="button" @click="openModal">Create Todo</ButtonItem>
+      </MyModal>
+      <MyButton type="button" @click="openModal">Create Todo</MyButton>
+      <MySelect v-model="selectedSort" :options="sortOptions"></MySelect>
       <TodoList :todos="todos" @removeTodo="removeTodo" />
     </div>
   </main>
@@ -28,6 +29,13 @@ export default {
     return {
       todos: dataTodos,
       isShow: false,
+      selectedSort: "",
+      sortOptions: [
+        { value: "title", name: "Sort by title" },
+        { value: "body", name: "Sort by body" },
+        { value: "isActive", name: "Sort by status" },
+        { value: "id", name: "Sort by id" },
+      ],
     };
   },
   methods: {
@@ -36,7 +44,6 @@ export default {
     },
 
     createTodo(todo) {
-      console.log(todo);
       this.todos.push(todo);
     },
 
@@ -44,6 +51,21 @@ export default {
       this.todos = this.todos.filter(({ id }) => id !== todo.id);
     },
   },
+  watch: {
+    selectedSort(newSelectedSort) {
+      console.log("newSelectedSort: ", newSelectedSort);
+      if (newSelectedSort === "isActive" || newSelectedSort === "id") {
+        return this.todos.sort(
+          (a, b) => Number(a[newSelectedSort]) - Number(b[newSelectedSort])
+        );
+      }
+
+      return this.todos.sort((a, b) =>
+        a[newSelectedSort]?.localeCompare(b[newSelectedSort])
+      );
+    },
+  },
+  computed: {},
 };
 </script>
 

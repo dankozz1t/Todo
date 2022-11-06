@@ -1,5 +1,6 @@
-import ButtonItem from "./ButtonItem.vue";
-import InputItem from "./InputItem.vue";
-import ModalWindow from "./ModalWindow.vue";
+import MyButton from "./MyButton.vue";
+import MyInput from "./MyInputI.vue";
+import MyModal from "./MyModal.vue";
+import MySelect from "./MySelect.vue";
 
-export default [ButtonItem, InputItem, ModalWindow];
+export default [MyButton, MyInput, MyModal, MySelect];

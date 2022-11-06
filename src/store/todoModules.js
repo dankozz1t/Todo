@@ -4,7 +4,7 @@ export const todoModules = {
   state: () => ({
     todos: [],
     searchQuery: "",
-    selectedSort: "",
+    selectedSort: "id",
     sortOptions: [
       { value: "title", name: "Sort by title" },
       { value: "body", name: "Sort by body" },
@@ -17,7 +17,7 @@ export const todoModules = {
       if (state.selectedSort === "isActive" || state.selectedSort === "id") {
         return [...state.todos].sort(
           (a, b) =>
-            Number(a[state.selectedSort]) - Number(b[state.selectedSort])
+            Number(b[state.selectedSort]) - Number(a[state.selectedSort])
         );
       }
 

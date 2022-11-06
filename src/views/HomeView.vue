@@ -1,12 +1,13 @@
 <template>
   <main class="/">
-    <div class="container">
-      <CounterItem />
+    <MyContainer>
       <MyModal v-model:isShow="isShow">
         <FormCreateTodo @create="createTodo" />
       </MyModal>
-      <MyButton type="button" @click="openModal">Create Todo</MyButton>
-      <div>
+      <MyButton class="home__btnCreate" type="button" @click="openModal"
+        >Create Todo</MyButton
+      >
+      <div class="home__sort">
         <MyInput
           v-model="searchQuery"
           placeholder="search todo by title"
@@ -15,12 +16,11 @@
         <MySelect v-model="selectedSort" :options="sortOptions"></MySelect>
       </div>
       <TodoList :todos="sortedBySearch" @removeTodo="removeTodo" />
-    </div>
+    </MyContainer>
   </main>
 </template>
 
 <script>
-import CounterItem from "../components/CounterItem.vue";
 import FormCreateTodo from "../components/FormCreateTodo.vue";
 import TodoList from "../components/TodoList.vue";
 
@@ -28,7 +28,6 @@ import dataTodos from "../services/todos.json";
 
 export default {
   components: {
-    CounterItem,
     FormCreateTodo,
     TodoList,
   },
@@ -81,10 +80,16 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
+.home__btnCreate {
+  margin: 10px 0;
+
+  width: 100%;
+}
+
+.home__sort {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
 }
 </style>

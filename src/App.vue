@@ -1,21 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HomeView></HomeView>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view />
 </template>
 
-<script>
-import HomeView from "./views/HomeView.vue";
-
-export default {
-  name: "App",
-  components: {
-    HomeView,
-  },
-};
-</script>
-
 <style lang="scss">
-#app {
-  text-align: center;
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: var(--main-text-cl);
+}
+
+nav a.router-link-exact-active {
+  color: var(--main-accent-cl);
 }
 </style>

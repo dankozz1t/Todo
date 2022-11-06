@@ -1,22 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <TheHeader />
   <router-view />
 </template>
 
-<style lang="scss">
-nav {
-  padding: 30px;
-}
+<script>
+import TheHeader from "./components/TheHeader.vue";
 
-nav a {
-  font-weight: bold;
-  color: var(--main-text-cl);
-}
+export default {
+  components: {
+    TheHeader,
+  },
+};
+</script>
 
-nav a.router-link-exact-active {
-  color: var(--main-accent-cl);
-}
-</style>
+<style lang="scss"></style>

@@ -6,8 +6,15 @@
         <FormCreateTodo @create="createTodo" />
       </MyModal>
       <MyButton type="button" @click="openModal">Create Todo</MyButton>
-      <MySelect v-model="selectedSort" :options="sortOptions"></MySelect>
-      <TodoList :todos="todos" @removeTodo="removeTodo" />
+      <div>
+        <MyInput
+          v-model="searchQuery"
+          placeholder="search todo by title"
+        ></MyInput>
+
+        <MySelect v-model="selectedSort" :options="sortOptions"></MySelect>
+      </div>
+      <TodoList :todos="sortedBySearch" @removeTodo="removeTodo" />
     </div>
   </main>
 </template>
@@ -29,6 +36,7 @@ export default {
     return {
       todos: dataTodos,
       isShow: false,
+      searchQuery: "",
       selectedSort: "",
       sortOptions: [
         { value: "title", name: "Sort by title" },
@@ -51,21 +59,24 @@ export default {
       this.todos = this.todos.filter(({ id }) => id !== todo.id);
     },
   },
-  watch: {
-    selectedSort(newSelectedSort) {
-      console.log("newSelectedSort: ", newSelectedSort);
-      if (newSelectedSort === "isActive" || newSelectedSort === "id") {
-        return this.todos.sort(
-          (a, b) => Number(a[newSelectedSort]) - Number(b[newSelectedSort])
+  computed: {
+    sortedTodo() {
+      if (this.selectedSort === "isActive" || this.selectedSort === "id") {
+        return [...this.todos].sort(
+          (a, b) => Number(a[this.selectedSort]) - Number(b[this.selectedSort])
         );
       }
 
-      return this.todos.sort((a, b) =>
-        a[newSelectedSort]?.localeCompare(b[newSelectedSort])
+      return [...this.todos].sort((a, b) =>
+        a[this.selectedSort]?.localeCompare(b[this.selectedSort])
+      );
+    },
+    sortedBySearch() {
+      return [...this.todos].filter(({ title }) =>
+        title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     },
   },
-  computed: {},
 };
 </script>
 

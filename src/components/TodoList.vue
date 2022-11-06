@@ -35,6 +35,7 @@ export default {
 <style lang="scss">
 .todo {
   text-align: start;
+  width: 100%;
 }
 
 .todo--animation-item {

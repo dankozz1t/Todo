@@ -3,18 +3,18 @@
     <p>Like - {{ likes }}</p>
     <p>Dislike - {{ dislikes }}</p>
     <div>
-      <ButtonItem @:click="clickLike">Like</ButtonItem>
-      <ButtonItem @:click="clickDislike">Dislike</ButtonItem>
+      <MyButton @:click="clickLike">Like</MyButton>
+      <MyButton @:click="clickDislike">Dislike</MyButton>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonItem from "./UI/ButtonItem.vue";
+import MyButton from "./UI/MyButton.vue";
 
 export default {
   components: {
-    ButtonItem,
+    MyButton,
   },
   name: "CounterItem",
 

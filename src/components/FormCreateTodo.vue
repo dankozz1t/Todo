@@ -1,13 +1,9 @@
 <template>
   <form @submit.prevent="createTodo">
-    <InputItem
-      v-model="todo.title"
-      placeholder="enter title for todo"
-      required
-    />
-    <InputItem v-model="todo.body" placeholder="enter body for todo" />
+    <MyInput v-model="todo.title" placeholder="enter title for todo" required />
+    <MyInput v-model="todo.body" placeholder="enter body for todo" />
 
-    <ButtonItem type="submit">Add Todo</ButtonItem>
+    <MyButton type="submit">Add Todo</MyButton>
   </form>
 </template>
 
@@ -21,6 +17,7 @@ export default {
   methods: {
     createTodo() {
       this.todo.id = Date.now();
+      this.todo.isActive = true;
       this.$emit("create", this.todo);
       this.todo = { title: "", body: "", id: null };
     },

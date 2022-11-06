@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "ModalWindow",
+  name: "MyModal",
   props: {
     isShow: Boolean,
     default() {

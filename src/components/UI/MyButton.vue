@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "ButtonItem",
+  name: "MyButton",
   props: {
     type: String,
     default: function () {

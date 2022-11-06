@@ -9,9 +9,7 @@
       </h2>
       <p class="todo__body">{{ todo.body }}</p>
     </div>
-    <ButtonItem @click="$emit('removeTodo', todo)" type="button"
-      >Delete</ButtonItem
-    >
+    <MyButton @click="$emit('removeTodo', todo)" type="button">Delete</MyButton>
   </li>
 </template>
 

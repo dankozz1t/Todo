@@ -33,10 +33,10 @@ export default {
   justify-content: space-between;
   align-items: center;
 
-  width: 300px;
+  width: 500px;
   padding: 15px;
   border-radius: 5px;
-  background-color: cadetblue;
+  background-color: var(--main-accent-cl);
 
   transition: background-color var(--transition-time) var(--transition-cubic);
 
@@ -45,7 +45,7 @@ export default {
   }
 
   &:hover {
-    background-color: #6eabad;
+    background-color: var(--main-light-accent-cl);
   }
 }
 
@@ -57,11 +57,11 @@ export default {
   border-radius: 50%;
 
   &--green {
-    background-color: green;
+    background-color: var(--online-cl);
   }
 
   &--red {
-    background-color: red;
+    background-color: var(--offline-cl);
   }
 }
 </style>

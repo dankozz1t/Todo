@@ -13,8 +13,10 @@
   --main-bg-cl: #5472aa;
   --secondary-bg-cl: #ffffff;
 
-  --main-accent-cl: #08c5ff;
-  --secondary-accent-cl: #ff6b08;
+  --main-accent-cl: cadetblue;
+  --main-light-accent-cl: #6eabad;
+
+  --secondary-accent-cl: #5479d6;
 
   // Transition
   --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,6 +27,10 @@
   --info-cl: #76bedb;
   --warning-cl: #e6af5f;
   --error-cl: #c95c54;
+
+  //Status
+  --online-cl: green;
+  --offline-cl: red;
 }
 
 $mobile: 320px;

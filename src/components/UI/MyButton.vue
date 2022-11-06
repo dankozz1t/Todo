@@ -19,7 +19,8 @@ export default {
 <style lang="scss" scoped>
 .btn {
   display: inline-block;
-  background-color: #5479d6;
+  background-color: var(--secondary-accent-cl);
+
   padding: 10px;
   border: none;
   outline: none;

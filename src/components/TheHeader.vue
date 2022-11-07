@@ -2,7 +2,9 @@
   <header class="header">
     <nav class="navigation">
       <router-link class="navigation__link" to="/">Home</router-link> |
-      <router-link class="navigation__link" to="/about">About</router-link>
+      <router-link class="navigation__link" to="/contacts"
+        >Contacts</router-link
+      >
     </nav>
   </header>
 </template>

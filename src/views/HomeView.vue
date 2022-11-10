@@ -8,25 +8,27 @@
         >Create Todo</MyButton
       >
 
-      <b-row class="home__sort">
-        <b-col cols="12" md="6" order-md="2">
-          <MySelect
-            class="home__select"
-            :model-value="selectedSort"
-            @update:model-value="setSelectedSort"
-            :options="sortOptions"
-          ></MySelect>
-        </b-col>
+      <div class="home__sort">
+        <b-row>
+          <b-col cols="12" md="6" order-md="2">
+            <MySelect
+              class="home__select"
+              :model-value="selectedSort"
+              @update:model-value="setSelectedSort"
+              :options="sortOptions"
+            ></MySelect>
+          </b-col>
 
-        <b-col cols="12" md="6" order-md="1">
-          <MyInput
-            class="home__input"
-            :model-value="searchQuery"
-            @update:model-value="setSearchQuery"
-            placeholder="search todo by title"
-          ></MyInput>
-        </b-col>
-      </b-row>
+          <b-col cols="12" md="6" order-md="1">
+            <MyInput
+              class="home__input"
+              :model-value="searchQuery"
+              @update:model-value="setSearchQuery"
+              placeholder="search todo by title"
+            ></MyInput>
+          </b-col>
+        </b-row>
+      </div>
 
       <TodoList :todos="sortedBySearch" @removeTodo="removeTodo" />
     </MyContainer>

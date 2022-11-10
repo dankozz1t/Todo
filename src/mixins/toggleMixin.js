@@ -2,7 +2,6 @@ export default {
   props: {
     isShow: Boolean,
     default: () => false,
-    require,
   },
   methods: {
     closeModal() {

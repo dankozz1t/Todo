@@ -7,19 +7,27 @@
       <MyButton class="home__btnCreate" type="button" @click="openModal"
         >Create Todo</MyButton
       >
-      <div class="home__sort">
-        <MyInput
-          :model-value="searchQuery"
-          @update:model-value="setSearchQuery"
-          placeholder="search todo by title"
-        ></MyInput>
 
-        <MySelect
-          :model-value="selectedSort"
-          @update:model-value="setSelectedSort"
-          :options="sortOptions"
-        ></MySelect>
-      </div>
+      <b-row class="home__sort">
+        <b-col cols="12" md="6" order-md="2">
+          <MySelect
+            class="home__select"
+            :model-value="selectedSort"
+            @update:model-value="setSelectedSort"
+            :options="sortOptions"
+          ></MySelect>
+        </b-col>
+
+        <b-col cols="12" md="6" order-md="1">
+          <MyInput
+            class="home__input"
+            :model-value="searchQuery"
+            @update:model-value="setSearchQuery"
+            placeholder="search todo by title"
+          ></MyInput>
+        </b-col>
+      </b-row>
+
       <TodoList :todos="sortedBySearch" @removeTodo="removeTodo" />
     </MyContainer>
   </main>
@@ -92,9 +100,16 @@ export default {
 }
 
 .home__sort {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
   margin: 10px 0;
+}
+
+.home__select {
+  height: 50px;
+  width: 100%;
+}
+
+.home__input {
+  width: 100%;
+  height: 100%;
 }
 </style>

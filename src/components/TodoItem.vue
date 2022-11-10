@@ -1,15 +1,24 @@
 <template>
   <li class="todo__item">
-    <div>
-      <h2 class="todo__title">
-        <span
-          :class="['status', todo.isActive ? 'status--green' : 'status--red']"
-        ></span>
-        {{ todo.title }}
-      </h2>
-      <p class="todo__body">{{ todo.body }}</p>
-    </div>
-    <MyButton @click="$emit('removeTodo', todo)" type="button">Delete</MyButton>
+    <b-row>
+      <b-col cols="12" md="10">
+        <h2 class="todo__title">
+          <span
+            :class="['status', todo.isActive ? 'status--green' : 'status--red']"
+          ></span>
+          {{ todo.title }}
+        </h2>
+        <p class="todo__body">{{ todo.body }}</p>
+      </b-col>
+      <b-col cols="12" md="2" align-self="center">
+        <MyButton
+          @click="$emit('removeTodo', todo)"
+          type="button"
+          class="button"
+          >Delete</MyButton
+        >
+      </b-col>
+    </b-row>
   </li>
 </template>
 
@@ -29,11 +38,6 @@ export default {
 
 <style lang="scss">
 .todo__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
   padding: 15px;
   border-radius: 5px;
   background-color: var(--main-accent-cl);
@@ -63,5 +67,9 @@ export default {
   &--red {
     background-color: var(--offline-cl);
   }
+}
+
+.button {
+  width: 100%;
 }
 </style>

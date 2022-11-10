@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">
+  <button class="my-btn">
     <slot></slot>
   </button>
 </template>
@@ -17,13 +17,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
+.my-btn {
   display: inline-block;
   background-color: var(--secondary-accent-cl);
+  font-weight: 700;
 
   padding: 10px;
   border: none;
   outline: none;
   border-radius: 5px;
+
+  &:active {
+    color: white;
+    background-color: var(--secondary-accent-cl);
+  }
 }
 </style>

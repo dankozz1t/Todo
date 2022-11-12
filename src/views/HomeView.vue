@@ -9,7 +9,7 @@
       >
 
       <div class="home__sort">
-        <b-row>
+        <b-row class="gy-2">
           <b-col cols="12" md="6" order-md="2">
             <MySelect
               class="home__select"

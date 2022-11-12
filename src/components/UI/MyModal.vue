@@ -43,7 +43,7 @@ export default {
 .modal__content {
   position: relative;
 
-  padding: 50px;
+  padding: 25px;
 
   background-color: var(--secondary-bg-cl);
 

@@ -6,6 +6,7 @@
         :key="todo.id"
         :todo="todo"
         @removeTodo="$emit('removeTodo', todo)"
+        @changeStatus="$emit('changeStatus', todo)"
       />
     </transition-group>
   </ul>

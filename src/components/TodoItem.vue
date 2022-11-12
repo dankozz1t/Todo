@@ -1,7 +1,7 @@
 <template>
   <li class="todo__item">
     <b-row>
-      <b-col cols="12" md="10">
+      <b-col cols="12" md="8">
         <h2 class="todo__title">
           <span
             :class="['status', todo.isActive ? 'status--green' : 'status--red']"
@@ -10,7 +10,20 @@
         </h2>
         <p class="todo__body">{{ todo.body }}</p>
       </b-col>
-      <b-col cols="12" md="2" align-self="center">
+      <b-col cols="12" md="1" align-self="center">
+        <b-form-checkbox
+          @click.enter="$emit('changeStatus', todo)"
+          id="checkbox-1"
+          v-model="status"
+          name="checkbox-1"
+          value="true"
+          unchecked-value="false"
+          switch
+        >
+        </b-form-checkbox>
+      </b-col>
+
+      <b-col cols="12" md="3" align-self="center">
         <MyButton
           @click="$emit('removeTodo', todo)"
           type="button"
@@ -24,6 +37,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      status: this.todo.isActive.toString(),
+    };
+  },
   props: {
     todo: {
       type: Object,

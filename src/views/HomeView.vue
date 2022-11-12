@@ -30,7 +30,11 @@
         </b-row>
       </div>
 
-      <TodoList :todos="sortedBySearch" @removeTodo="removeTodo" />
+      <TodoList
+        :todos="sortedBySearch"
+        @removeTodo="removeTodo"
+        @changeStatus="changeStatus"
+      />
     </MyContainer>
   </main>
 </template>
@@ -72,6 +76,9 @@ export default {
 
     removeTodo(todo) {
       this.setTodo(this.todos.filter(({ id }) => id !== todo.id));
+    },
+    changeStatus(todo) {
+      todo.isActive = !todo.isActive;
     },
   },
 

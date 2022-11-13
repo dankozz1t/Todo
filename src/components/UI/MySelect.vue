@@ -12,7 +12,9 @@ export default {
     modelValue: { type: String },
     options: {
       type: Array,
-      default: () => [],
+      default() {
+        return [];
+      },
     },
   },
   methods: {
